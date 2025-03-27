@@ -98,6 +98,7 @@ form{
     width: 50px;
 }
 .top{
+    margin-top: 50px;
     position: static;
     height: 73vh;
 
