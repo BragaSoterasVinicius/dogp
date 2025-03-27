@@ -10,9 +10,16 @@
 <div id="deadcenter">
     <img class="logo" id="img" th:src="@{${'/imagens/dogp.png'}}"/>
 <h1 id="title">DogPee</h1>
-
-<div><a th:href="@{login}">Login</a></div>
-<a th:href="@{cadastro}">Cadastro</a>
+<div id="containerCenterDiv">
+    <div>
+        <div class="enterlayout">
+        <a th:href="@{login}">Login</a>
+        </div>
+        <div class="enterlayout">
+        <a th:href="@{cadastro}">Cadastro</a>
+        </div>
+    </div>
+</div>
 </div>
 </body>
 </html>

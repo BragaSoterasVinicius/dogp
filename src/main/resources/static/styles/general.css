@@ -89,3 +89,14 @@ height: 20px;
 text-align: center;
 align-content: center;
 }
+.enterlayout{
+  border-style: solid;
+  border-color: black;
+  width: 90px;
+  height: 30px;
+}
+#containerCenterDiv{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
