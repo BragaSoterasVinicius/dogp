@@ -28,10 +28,20 @@
   }
   .centercolumn input{
     height: 30px;
+    width: 90%;
   }
   .centercolumn button{
     height: 30px;
     width: 40vh;
+  }
+
+  .enterlayout{
+    border-style: solid;
+    border-color: black;
+    width: 290px;
+    height: 51px;
+    background-color: lightgray;
+    margin-top: 38px;
   }
 }
 
@@ -47,6 +57,15 @@
   #deadcenter{
     top: 40%;
   }
+
+  .enterlayout{
+    border-style: solid;
+    border-color: black;
+    width: 90px;
+    height: 23px;
+    background-color: lightgray;
+    margin-bottom: 4px;
+  }
 }
 
 #title{
@@ -56,7 +75,6 @@ font-family: PixeloidSans;
 position: absolute;
 width: 100%;
 height: 20px;
-top: 40%;
 margin-top: -10px;
 text-align: center;
 }
@@ -75,6 +93,11 @@ color:bisque;
 text-decoration: underline;
 text-decoration-color: bisque;
 }
+.a{
+  text-decoration: none;
+  color: black;
+  font-family: PixeloidSans;
+}
 a{
   text-decoration: none;
 color: black;
@@ -90,14 +113,6 @@ width: 100%;
 height: 20px;
 text-align: center;
 align-content: center;
-}
-.enterlayout{
-  border-style: solid;
-  border-color: black;
-  width: 90px;
-  height: 30px;
-  background-color: lightgray;
-  margin-bottom: 4px;
 }
 .enterlayout:hover{
   background-color: #3e3e3e;
