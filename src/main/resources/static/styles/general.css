@@ -76,7 +76,9 @@ text-decoration: underline;
 text-decoration-color: bisque;
 }
 a{
-color: bisque;
+  text-decoration: none;
+color: black;
+  font-family: PixeloidSans;
 }
 .centercolumn{
 background-color: #7f7f7f;
@@ -94,7 +96,16 @@ align-content: center;
   border-color: black;
   width: 90px;
   height: 30px;
+  background-color: lightgray;
+  margin-bottom: 4px;
 }
+.enterlayout:hover{
+  background-color: #3e3e3e;
+}
+.enterlayout:hover a{
+  color: white;
+}
+
 #containerCenterDiv{
   display: flex;
   align-items: center;
