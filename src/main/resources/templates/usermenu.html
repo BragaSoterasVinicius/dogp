@@ -12,68 +12,82 @@
             <div style="background-color: rgba(0,0,0,.25); height: 200px;">
                 <img id="img" style="height: 200px" th:src="@{/images/__${dog}__}"/>
             </div>
-            
-            <div style="float: inline-end; font-size: 12px;">
-                <a th:href="@{/draw}">Desenhar o perfil</a><br>
-                <a th:href="@{/gotoMyPoste}">Ir para meu poste</a><br>
-                <details>
-                    <summary class="semi_a">Alterar fundo pessoal</summary>
-                    <div>
-                        <form  th:action="@{/changeBg}" th:object="${formModel}" method="post" enctype="multipart/form-data">
-                            <input type="file" id="image" name="image" accept="image/*" class="form-control-file"/>
-                            <button type="submit">Subir fundo</button>
-                        </form>
-                    </div>
-                </details>
-                <details>
-                    <summary class="semi_a">Alterar cor do poste</summary>
-                    <div>
-                        <form  th:action="@{/changeColor}" th:object="${formModel}" method="post" enctype="multipart/form-data">
-                            <input type="color" id="divscolor" name="divscolor" accept="divscolor/*" class="form-control-file"/>
-                            <button type="submit">Alterar cor</button>
 
-                    </div>
-                </details>
-            </div>
+            <a th:href="@{/draw}">Desenhar o perfil</a><br>
+            <a th:href="@{/gotoMyPoste}">Ir para meu poste</a><br>
+
             <div style="font-size: 30px; margin-left: 10px; margin-top: 5px; margin-bottom: 5px;"  th:text="${username}"></div> 
-            
-            <div style=" height: 50%; width: 50%; float: inline-start;">
-                <h1 class="contenttitle">My Posts</h1>
-    <p class="content">datetime: -- postagem: -- poste:</p>
-    <div class="conjunto">
-    <div class="content" th:each="post : ${listsPosts}">
-        <span th:text="${post.getDatetime()}"></span>
-        <span>--</span>
-        <span th:text="${post.getPost()}"></span>
-        <span>--</span>
-        <span th:text="${post.getPosteId()}"></span>
-    </div>
-    </div>
-    </div>
-            <div style=" height: 50%;">
-                <div class="direita">
-                    <h1 class="contenttitle">Fungada Memory</h1>
+            <details>
+                <summary><h1 class="contenttitle">My Posts</h1></summary>
+                <div style="     height: 50vh; margin-right: 30px; ">
+                        <div class="content" style="display: flex">
+                            <div class="contentdata data">Data</div>
+
+                            <div class="contentdata postcontent">Conteúdo</div>
+
+                            <div class="contentdata poste">Poste</div>
+                        </div>
                     <div class="conjunto">
-                    <div class="content" id="fungada" th:each="cheiro : ${listCheiros}">
-                        
-                        <span th:text="${cheiro.getDatetime()}"></span><span> - </span>
-                        <span th:text="${cheiro.getCheirado_id()}"></span><span> - </span>
-                        <span th:text="${cheiro.getApelido()}"></span>
-                        <form th:action="@{/changeApelido}" th:object="${newCheiro}" enctype="multipart/form-data">
-                            <input type="text" id="apelido" name="apelido"/>
-                            <input type="hidden" id="id" name="id" th:value="${cheiro.getId()}">
-                            
-                        <br><input type="submit" value="adicionar/alterar apelido">
-                        </form>
-                        <form th:action="@{/addSmellToSearchList}" th:object="${newCheiro}" enctype="multipart/form-data">
-                            <input type="hidden" id="cheirado_id" name="cheirado_id" th:value="${cheiro.getCheirado_id()}"/>
-                            <input type="submit" value="Destacar cheiro">
-                        </form>
-                        <p th:text="${cheiro.getIs_hunted()}"></p>
+                        <div class="content" style="display: flex" th:each="post : ${listsPosts}">
+                            <div class="contentdata data" th:text="${post.getDatetime()}"></div>
+
+                            <div class="contentdata postcontent" th:text="${post.getPost()}"></div>
+
+                            <div class="contentdata poste" th:text="${post.getPosteId()}"></div>
+                        </div>
                     </div>
                 </div>
+            </details>
+            <details>
+                <summary><h1 class="contenttitle">Fungada Memory</h1></summary>
+                <div style=" height: 50%;">
+                    <div class="direita">
+
+                        <div class="conjunto">
+                        <div class="content" id="fungada" th:each="cheiro : ${listCheiros}">
+
+                            <span th:text="${cheiro.getDatetime()}"></span><span> - </span>
+                            <span th:text="${cheiro.getCheirado_id()}"></span><span> - </span>
+                            <span th:text="${cheiro.getApelido()}"></span>
+                            <form th:action="@{/changeApelido}" th:object="${newCheiro}" enctype="multipart/form-data">
+                                <input type="text" id="apelido" name="apelido"/>
+                                <input type="hidden" id="id" name="id" th:value="${cheiro.getId()}">
+
+                            <br><input type="submit" value="adicionar/alterar apelido">
+                            </form>
+                            <form th:action="@{/addSmellToSearchList}" th:object="${newCheiro}" enctype="multipart/form-data">
+                                <input type="hidden" id="cheirado_id" name="cheirado_id" th:value="${cheiro.getCheirado_id()}"/>
+                                <input type="submit" value="Destacar cheiro">
+                            </form>
+                            <p th:text="${cheiro.getIs_hunted()}"></p>
+                        </div>
+                    </div>
+                    </div>
                 </div>
-            </div>
+            </details>
+            <details>
+                <summary><h1 class="contenttitle">Edit</h1></summary>
+                <div style="font-size: 12px;">
+                    <details>
+                        <summary class="semi_a">Alterar fundo pessoal</summary>
+                        <div>
+                            <form  th:action="@{/changeBg}" th:object="${formModel}" method="post" enctype="multipart/form-data">
+                                <input type="file" id="image" name="image" accept="image/*" class="form-control-file"/>
+                                <button type="submit">Subir fundo</button>
+                            </form>
+                        </div>
+                    </details>
+                    <details>
+                        <summary class="semi_a">Alterar cor do poste</summary>
+                        <div>
+                            <form  th:action="@{/changeColor}" th:object="${formModel}" method="post" enctype="multipart/form-data">
+                                <input type="color" id="divscolor" name="divscolor" accept="divscolor/*" class="form-control-file"/>
+                                <button type="submit">Alterar cor</button>
+
+                        </div>
+                    </details>
+                </div>
+            </details>
         </div>
     </body>
 </html>

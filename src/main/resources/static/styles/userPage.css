@@ -13,7 +13,11 @@
 .username{
     font-size: 40px;
 }
+summary{
+    margin: 30px;
+}
 .contenttitle{
+    display: inline;
     margin-left: 10px;
 }
 .content{
@@ -21,8 +25,6 @@
     margin-left: 30px;
 }
 .direita{
-    height: 100%;
-    float: inline-end;
 }
 .top{
     height: 100px;
@@ -31,6 +33,25 @@
     margin-top: 100px;
     width: 300px;
 }
+.contentdata{
+    background-color: white;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.data{
+    width: 15%;
+}
+
+.postcontent{
+    width: 80%;
+}
+
+.poste{
+    width: 10%;
+}
+
 .conjunto{
     height: 100%;
     overflow: auto;
