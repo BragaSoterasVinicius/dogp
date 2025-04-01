@@ -8,15 +8,26 @@
         <link th:href="@{/styles/general.css}" rel="stylesheet" />
     </head>
     <body th:style="'background:url('  + @{/images/background/__${backgroundImage}__} + ');'">
-        <div style="background-color: gray; height: 100vh; margin-left: 20%; margin-right: 20%;">
-            <div style="background-color: rgba(0,0,0,.25); height: 200px;">
-                <img id="img" style="height: 200px" th:src="@{/images/__${dog}__}"/>
+
+    <div style="background-color: rgba(0,0,0,.25); height: 200px; margin-top: 50px; margin-left: 30%; margin-right: 30%; position: relative">
+        <img id="img" style="height: 214px; margin-top: 0px; margin-left: 23px" th:src="@{/images/__${dog}__}"/>
+        <span style=" position: absolute;
+    top: 118px;  /* Adjust as needed */
+    right: 21px; /* Adjust as needed */
+    font-size: 75px;
+    font-weight: bold;
+    color: black;
+    font-family: PixeloidSans;
+" th:text="${userPoste}">345</span>
+    </div>
+    <div style="background-color: grey; overflow: auto; height: 60vh; padding: 30px ;margin-left: 30%; margin-right: 30%;">
+
+        <div style="background-color: grey">
+            <div class="enderecos" style="float: right">
+                <a th:href="@{/draw}">Desenhar o perfil</a><br>
+                <a th:href="@{/gotoMyPoste}">Ir para meu poste</a><br>
             </div>
-
-            <a th:href="@{/draw}">Desenhar o perfil</a><br>
-            <a th:href="@{/gotoMyPoste}">Ir para meu poste</a><br>
-
-            <div style="font-size: 30px; margin-left: 10px; margin-top: 5px; margin-bottom: 5px;"  th:text="${username}"></div> 
+            <span style="font-size: 30px">user: </span><tag style="font-size: 60px; margin-top: 5px; margin-bottom: 5px;"  th:text="${username}"></tag>
             <details>
                 <summary><h1 class="contenttitle">My Posts</h1></summary>
                 <div style="     height: 50vh; margin-right: 30px; ">
@@ -40,7 +51,7 @@
             </details>
             <details>
                 <summary><h1 class="contenttitle">Fungada Memory</h1></summary>
-                <div style=" height: 50%;">
+                <div style=" height: 50vh;">
                     <div class="direita">
 
                         <div class="conjunto">
@@ -89,5 +100,6 @@
                 </div>
             </details>
         </div>
+    </div>
     </body>
 </html>
