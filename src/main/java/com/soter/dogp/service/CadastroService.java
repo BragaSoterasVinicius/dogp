@@ -44,7 +44,8 @@ public class CadastroService {
         Dado que eu espero poucos, é apropriado deixar na casa de dezenas msm*/
         List<Integer> usedPostes = userRepo.getUsedHomePostes();
         //int space = usedPostes.size()+1;
-        int space = 400;
+        //NUMERO DE CASAS POSSIVEIS
+        int space = 9400;
         for(int p = 0; p < space; p++ ){
         Integer homePost = r.nextInt(space);
         if (!usedPostes.contains(homePost)){
