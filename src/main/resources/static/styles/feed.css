@@ -55,8 +55,9 @@
     border-width: 1px;
 }
 #img{
-    height: 200px;
-    width: 320px;
+    float: inline-end;
+    height: 160px;
+    width: 250px;
 }
 .time{
     font-family: PixeloidSans;
