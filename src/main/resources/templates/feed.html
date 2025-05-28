@@ -2,23 +2,14 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:text="Poste+${posteId}"></title>
+    <title th:text="Poste+' '+${posteId}"></title>
     <link th:href="@{/styles/feed.css}" rel="stylesheet" />
     <link th:href="@{/styles/general.css}" rel="stylesheet" />
     <link rel="stylesheet" href="../static/styles/feed.css">
-    <script>
-        // Function to simulate button click on keypress
-        document.addEventListener("keydown", function(event) {
-            // Check if the 'Enter' key is pressed
-            if (event.key == "ArrowRight") {
-                document.getElementById("nextPoste").click();
-            }
-            if (event.key == "ArrowLeft") {
-                document.getElementById("lastPoste").click();
-            }
+    <script th:src="@{/js/feed.js}">
 
-        });
     </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body th:style="'background:url('  + @{/images/background/__${backgroundImage}__} + ');'">
 
@@ -26,15 +17,22 @@
 <div class="userdata">
     <a th:href="@{perfil}"><div th:text="${username}"></div></a>
     <a th:href="logout">log out</a>
+    <div class="time">
+        <span id="daytime"></span><br>
+        <span id="yeartime"></span>
+    </div>
 </div>
 <div class="middle">
 <h1 id="bignumber" th:text ="${posteId}"></h1>
-<div th:each="post : ${listsPosts}" th:classappend="${post.isHunted} ? 'active' : 'inactive'">
-    <tag th:text="${post.getDatetime()}"></tag>
-    <tag> - </tag>
-    <tag th:text="${post.getApelido()}"></tag>
-    <tag> - </tag>
-    <tag th:text="${post.getPost()}"></tag>
+<div th:each="post : ${listsPosts}" th:classappend="${post.isHunted} ? 'active' : 'inactive'" class="post">
+    <div th:if="${post.getApelido()}" style="border-style: solid; border-width: 1px; width: 45%; margin: 4px; min-height: 19px; background-color: white"><tag th:text="${post.getApelido()}"></tag></div>
+    <div style="border-style: solid; border-width: 1px; margin: 4px; background-color: white">
+        <div style="display: flex">
+            <div th:text="${post.getPost()}" style="margin: 3px;" th:classappend="${post.hasImage()} ? 'postComImagem' : 'postSemImagem'"></div>
+            <div th:if="${post.hasImage()}" style="margin: 3px; width: 40%;"><img th:src="@{/images/posts/__${post.getImgName()}__}" style=" width: 100%"></div>
+        </div>
+        <div style="border-top-style: solid; border-width: 1px; " th:text="${post.getDatetime()}"></div>
+    </div>
     <form th:action="@{/addSmell}" th:object="${newCheiro}" method="post" enctype="multipart/form-data">
         <input type="hidden" id="cheirado_id" name="cheirado_id" th:value="${post.getUserid()}"/>
         <input type="submit" value="Scheirar">
@@ -42,13 +40,12 @@
 </div>
 </div>
 <div class="direita">
-    <div th:each="dog : ${dogGallery}">
-        <img id="img" th:src="@{/images/__${dog}__}"/>
-    </div>
+        <img th:each="dog : ${dogGallery}" id="img" th:src="@{/images/__${dog}__}"/>
 </div>
 </div>
 <div class="under">
     <form th:action="@{/postar}" th:object="${newPosts}" method="post" enctype="multipart/form-data">
+        <input type="file" id="image" name="image" accept="image/*" class="form-control-file"/>
         <input type="text" id="post" name="post"/>
         <button type="submit">Postar</button>
     </form>

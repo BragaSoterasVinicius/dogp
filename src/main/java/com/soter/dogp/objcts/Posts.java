@@ -27,6 +27,16 @@ public class Posts {
 
     @Column(name = "poste_id")
     private Integer poste_id;
+    @Column(name = "imgname")
+    private String imgname;
+
+    public String getImgname() {
+        return imgname;
+    }
+
+    public void setImgname(String imgname) {
+        this.imgname = imgname;
+    }
 
     public void setId(int id) {
         this.id = id;

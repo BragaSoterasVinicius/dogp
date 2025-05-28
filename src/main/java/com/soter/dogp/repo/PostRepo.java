@@ -14,8 +14,8 @@ public interface PostRepo extends JpaRepository<Posts, Integer> {
 
     @Transactional
     @Modifying
-    @Query(value = "INSERT INTO posts(user_id, post, poste_id) VALUES (:user_id, :textcontent, :poste );", nativeQuery = true)
-    void createPost(Integer user_id, String textcontent, Integer poste);
+    @Query(value = "INSERT INTO posts(user_id, post, poste_id, imgname) VALUES (:user_id, :textcontent, :poste, :imgName );", nativeQuery = true)
+    void createPost(Integer user_id, String textcontent, Integer poste, String imgName);
 
     @Transactional
     @Modifying
@@ -35,4 +35,7 @@ public interface PostRepo extends JpaRepository<Posts, Integer> {
     @Modifying
     @Query(value = "UPDATE postebackground SET name = :filename WHERE background_id = :backgroundId", nativeQuery = true)
     void updateBg(String filename, Integer backgroundId);
+
+    @Query(value = "SELECT imgname FROM posts WHERE id = :id", nativeQuery = true)
+    String getImagemFromPost(Integer id);
 }

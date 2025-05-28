@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quadro</title>
     <link th:href="@{/styles/general.css}" rel="stylesheet" />
+    <link th:href="@{/styles/dogDraw.css}" rel="stylesheet"/>
     <script th:src="@{/js/dogDraw.js}"></script>
 </head>
 <body onload="draw()" style="background-color: #7f7f7f">
@@ -13,8 +14,12 @@
     <a th:href="@{/perfil}">Voltar</a>
     <h1>Desenhe teu cão</h1>
     <canvas height="300px" width="600px" id="canvas" style="margin: 5%">
-    </canvas>
-        <div>
+    </canvas><br>
+        <div class="drawMenu">
+        <input type="color" id="color-picker" value="#000000" />
+        <input type="range" id="brush-size" min="1" max="30" value="5" />
+        </div>
+        <div  class="drawMenu">
     <button onclick="sendToJavaTron()">enviar imagem</button>
     <button onclick="apagar()">Apagar imagem</button>
         </div>

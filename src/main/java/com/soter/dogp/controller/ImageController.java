@@ -1,6 +1,8 @@
 package com.soter.dogp.controller;
 
+import com.soter.dogp.service.ImageService;
 import jakarta.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -22,44 +24,20 @@ import java.nio.file.Paths;
 @RequestMapping("/images")
 public class ImageController {
 
-    private final Path imagePath = Paths.get("/root/midia/galeria-do-dogp/");
-    private final Path bgPath = Paths.get("/root/midia/galeria-do-dogp/background");
-
+    @Autowired
+    ImageService imageService;
     @GetMapping("/{filename:.+}")
-    public ResponseEntity<UrlResource> serveFile(@PathVariable String filename) {
-        try {
-            Path file = imagePath.resolve(filename);
-            UrlResource resource = new UrlResource(file.toUri());
-            String contentType = Files.probeContentType(file);
-
-            return ResponseEntity.ok()
-                    .contentType(MediaType.parseMediaType(contentType))
-                    .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + resource.getFilename() + "\"")
-                    .body(resource);
-
-        } catch (MalformedURLException e) {
-            throw new RuntimeException("Error: " + e.getMessage());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    public ResponseEntity<UrlResource> serveDogFile(@PathVariable String filename) {
+        return imageService.serveImgFile(filename, "");
     }
 
     @GetMapping("/background/{filename:.+}")
     public ResponseEntity<UrlResource> serveBackground(@PathVariable String filename) {
-        try {
-            Path file = bgPath.resolve(filename);
-            UrlResource resource = new UrlResource(file.toUri());
-            String contentType = Files.probeContentType(file);
+        return imageService.serveImgFile(filename, "background");
+    }
 
-            return ResponseEntity.ok()
-                    .contentType(MediaType.parseMediaType(contentType))
-                    .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + resource.getFilename() + "\"")
-                    .body(resource);
-
-        } catch (MalformedURLException e) {
-            throw new RuntimeException("Error: " + e.getMessage());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    @GetMapping("/posts/{filename:.+}")
+    public ResponseEntity<UrlResource> servePostsFile(@PathVariable String filename) {
+        return imageService.serveImgFile(filename, "posts");
     }
 }

@@ -4,13 +4,22 @@
     <meta charset="UTF-8">
     <title>Dog Pee</title>
     <link th:href="@{/styles/general.css}" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <div id="deadcenter">
-    <img id="img" th:src="@{${'/imagens/dogp.png'}}"/>
-<h1>DogPee</h1>
-<a th:href="@{login}">Login<br>
-<a th:href="@{cadastro}">Cadastro</a>
+    <img class="logo" id="img" th:src="@{${'/imagens/dogp.png'}}"/>
+<h1 id="title">DogPee</h1>
+<div id="containerCenterDiv">
+    <div>
+        <div class="enterlayout">
+        <a th:href="@{login}">Login</a>
+        </div>
+        <div class="enterlayout">
+        <a th:href="@{cadastro}">Cadastro</a>
+        </div>
+    </div>
+</div>
 </div>
 </body>
 </html>

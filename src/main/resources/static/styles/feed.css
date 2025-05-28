@@ -1,30 +1,79 @@
-.active{
-    background-color: red;
+@media(min-width: 600px) {
+    .userdata{
+        position: relative;
+        float: right;
+        height: inherit;
+        width: 33%;
+    }
+    .middle{
+        width: 33%;
+    }
+    .direita{
+        width: 33%;
+        overflow: auto;
+        height: inherit;
+    }
+    .time{
+        font-size: 25px;
+    }
 }
-.inactive{
+@media(max-width: 600px){
+    a{
+        font-size: 20px;
+    }
+    .userdata{
+        bottom: 0px;
+        position: absolute;
+        width: 100%;
+    }
+    .time{
+        right: 0px;
+    }
+    .middle{
+        width: 100%;
+    }
+    .direita{
+        position: absolute;
+        top: 100vh;
+    }
+    .time{
+        font-size: 20px;
+    }
 }
-
+.post.active{
+    background-color: lime;
+}
+.post.inactive{
+    background-color: gray;
+}
+.postComImagem{
+    height: 100px;width: 55%;
+}
+.post{
+    margin: 5px;
+    border-style: solid;
+    border-width: 1px;
+}
 #img{
     height: 200px;
     width: 320px;
 }
-.userdata{
-    float: right;
-    height: inherit;
-    width: 33%;
+.time{
+    font-family: PixeloidSans;
+    margin-left: 20px;
+    color: white;
+    position: absolute;
+    bottom: 0px;
+}
+.userdata a{
+
 }
 .middle{
-    width: 33%;
+    font-family: monospace;
     background-color: white;
     color: black;
     overflow: auto;
     float: right;
-    height: inherit;
-    width: 33%;
-}
-.direita{
-    width: 33%;
-    overflow: auto;
     height: inherit;
 }
 .under{
@@ -49,6 +98,7 @@ form{
     width: 50px;
 }
 .top{
+    margin-top: 50px;
     position: static;
     height: 73vh;
 

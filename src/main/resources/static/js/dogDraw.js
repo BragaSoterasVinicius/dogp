@@ -6,7 +6,6 @@ window.addEventListener("load", ()=>{
 function draw() {
     
     let isDrawing = false;
-    tamanhoBrush = 10;
     const canvas = document.querySelector("canvas"),
     ctx = canvas.getContext("2d");
 
@@ -21,7 +20,17 @@ function draw() {
     image1 = new Image();
     //dps coloca o cachorro
     image1.src = 'imagens/dogptrans.png';
+    const colorPicker = document.getElementById("color-picker");
 
+    colorPicker.addEventListener("input", (e) => {
+        ctx.strokeStyle = e.target.value;
+    });
+    const brushSizeInput = document.getElementById("brush-size");
+
+    brushSizeInput.addEventListener("input", (e) => {
+        ctx.lineWidth = e.target.value;
+        console.log(ctx.lineWidth);
+    });
     const setCanvasBackground = () => {
         image2 = new Image();
         image2.src = 'imagens/dogpfundo.png';
@@ -32,7 +41,6 @@ function draw() {
     const startDrawing = () => {
         isDrawing = true;
         ctx.beginPath();
-        ctx.lineWidth = tamanhoBrush;
     }
     const drawing = (e) => {
         if(!isDrawing) return;
@@ -73,7 +81,9 @@ function apagar(){
     console.log("apagar");
     const canvas = document.querySelector("canvas"),
     ctx = canvas.getContext("2d");
-    ctx.fillStyle = '#fff';
-    ctx.fillRect(0,0, canvas.width, canvas.height);
-    ctx.fillStyle = "#fff";
+    image2 = new Image();
+    image2.src = 'imagens/dogpfundo.png';
+    image2.onload = () => {
+        ctx.drawImage(image2, 0, 0, canvas.width, canvas.height);
+    };
 }

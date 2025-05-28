@@ -1,40 +1,127 @@
+@font-face {
+  font-family: 'PixeloidSans';
+  src: url(fonts/PixeloidSans-mLxMm.ttf);
+}
+@font-face {
+  font-family: 'PixeloidBold';
+  src: url(fonts/PixeloidSansBold-PKnYd.ttf);
+}
+@media(max-width: 600px) {
+  #deadcenter a{
+    font-size: 50px;
+  }
+  #title{
+    font-size: 50px;
+  }
+  #deadcenter{
+    top: 24%;
+  }
+  .logo{
+  }
+  .deadCenterDiv{
+    font-size: 40px;
+    top: 30%;
+  }
+  .centercolumn{
+    margin-left: 0%;
+    margin-right: 0%;
+  }
+  .centercolumn input{
+    height: 30px;
+    width: 90%;
+  }
+  .centercolumn button{
+    height: 30px;
+    width: 40vh;
+  }
+
+  .enterlayout{
+    border-style: solid;
+    border-color: black;
+    width: 290px;
+    height: 51px;
+    background-color: lightgray;
+    margin-top: 38px;
+  }
+}
+
+@media(min-width: 600px){
+  .centercolumn{
+    margin-left: 30%;
+    margin-right: 30%;
+}
+  .deadCenterDiv{
+    top: 50%;
+  }
+
+  #deadcenter{
+    top: 40%;
+  }
+
+  .enterlayout{
+    border-style: solid;
+    border-color: black;
+    width: 90px;
+    height: 23px;
+    background-color: lightgray;
+    margin-bottom: 4px;
+  }
+}
+
+#title{
+font-family: PixeloidSans;
+}
 #deadcenter{
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  top: 40%;
-  margin-top: -10px;
-  text-align: center;
+position: absolute;
+width: 100%;
+height: 20px;
+margin-top: -10px;
+text-align: center;
 }
 body{
-  margin: 0px;
-  height: 100vh;
-  background-color: purple;
+margin: 0px;
+background-color: #808080;
 }
 #bignumber{
-  color: black;
-  text-align: center;
-  margin: 10px;
+color: black;
+text-align: center;
+margin: 10px;
 }
-#semi_a{
-  color:bisque;
-  text-decoration: underline;
-  text-decoration-color: bisque;
+.semi_a{
+color:bisque;
+text-decoration: underline;
+text-decoration-color: bisque;
+}
+.a{
+  text-decoration: none;
+  color: black;
+  font-family: PixeloidSans;
 }
 a{
-  color: bisque;
+  text-decoration: none;
+color: black;
+  font-family: PixeloidSans;
 }
 .centercolumn{
-  background-color: #7f7f7f;
-  height: 100vh;
-  margin-left: 30%;
-  margin-right: 30%;
+background-color: #7f7f7f;
+height: 100vh;
 }
 .deadCenterDiv{
-  position: relative;
-  width: 100%;
-  height: 20px;
-  top: 50%;
-  text-align: center;
-  align-content: center;
+position: relative;
+width: 100%;
+height: 20px;
+text-align: center;
+align-content: center;
+}
+.enterlayout:hover{
+  background-color: #3e3e3e;
+}
+.enterlayout:hover a{
+  color: white;
+}
+
+#containerCenterDiv{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

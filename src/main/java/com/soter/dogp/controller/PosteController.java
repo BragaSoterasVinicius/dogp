@@ -21,9 +21,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.awt.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class PosteController {
@@ -75,12 +80,19 @@ public class PosteController {
     }
 
     @PostMapping("/postar")
-    public String postar(HttpSession session, Model model, @ModelAttribute("Posts") Posts newPosts) {
+    public String postar(HttpSession session, Model model, @ModelAttribute("Posts") Posts newPosts, @RequestParam("image")MultipartFile file) throws IOException {
         model.addAttribute("postModel", new Posts());
         Integer user_id = (Integer) session.getAttribute("USERID");
         String post = newPosts.getPost();
         Integer posteId = (Integer) session.getAttribute("POSTEID");
-        postService.makePost(user_id, post, posteId);
+        String imgname = file.getOriginalFilename();
+        Path fileNameAndPath = Paths.get("/root/midia/galeria-do-dogp/posts", file.getOriginalFilename());
+        if(file.getSize()>0) {
+            Files.write(fileNameAndPath, file.getBytes());
+        }else{
+            imgname = null;
+        }
+        postService.makePost(user_id, post, posteId, imgname);
         return "redirect:/poste";
     }
 

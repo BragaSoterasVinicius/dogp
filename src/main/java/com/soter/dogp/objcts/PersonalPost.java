@@ -21,6 +21,7 @@ public class PersonalPost {
 
     private String apelido;
 
+    private String imgName;
     public String getApelido() {
         return apelido;
     }
@@ -71,6 +72,17 @@ public class PersonalPost {
 
     public boolean isHunted;
 
+    public boolean hasImage;
+
+    public void setImgName(String imagemName){
+        imgName = imagemName;
+    }
+    public String getImgName(){
+        return imgName;
+    }
+    public boolean hasImage(){
+        return imgName != null;
+    }
     public boolean isHunted() {
         return isHunted;
     }

@@ -22,7 +22,7 @@
         <a th:href="@{/draw}">Desenhar o perfil</a><br>
         <a th:href="@{/gotoMyPoste}">Ir para meu poste</a><br>
         <details>
-            <summary id="semi_a">Alterar fundo pessoal</summary>
+            <summary class="semi_a">Alterar fundo pessoal</summary>
             <div>
                 <form  th:action="@{/changeBg}" th:object="${formModel}" method="post" enctype="multipart/form-data">
                     <input type="file" id="image" name="image" accept="image/*" class="form-control-file"/>
@@ -30,6 +30,7 @@
                 </form>
             </div>
         </details>
+
 
     </div>
     <br>

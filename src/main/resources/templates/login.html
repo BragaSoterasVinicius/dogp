@@ -5,23 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
   <link th:href="@{/styles/general.css}" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <div class="centercolumn" id="login">
   <div class="deadCenterDiv">
-    <form th:action="@{/logar}" th:object="${loginModel}">
+    <form th:action="@{/logar}" th:object="${loginModel}" id="loginmodel">
 
-      <label for="email">Email</label>
-      <input type="text" id="email" name="email"/><br/>
+      <input type="text" id="email" name="email" placeholder="email"/><br/>
 
-      <label for="senha">Senha</label>
-      <input type="text" id="senha" name="senha"/><br/>
+      <input type="password" id="senha" name="senha" placeholder="senha"/><br/>
 
-      <button type="submit">Logar</button>
+      <div id="containerCenterDiv">
+        <div>
+      <div id="formsender" class="a enterlayout" onClick="this.parentNode.submit();">Logar</div>
+      <div style="display: flex"> <a class="enterlayout" th:href="@{cadastro}">Cadastro</a></div>
+        </div>
+      </div>
     </form>
-    <a th:href="@{cadastro}">Cadastro</a>
-  </div>
 
+  </div>
+  <script th:src="@{/js/loginFormSender.js}">
+  </script>
 </div>
 </body>
 </html>

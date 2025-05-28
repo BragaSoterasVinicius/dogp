@@ -35,8 +35,8 @@ public class PostService {
         return postePosts;
     }
 
-    public void makePost(Integer userId, String text, Integer poste) {
-        postRepo.createPost(userId, text, poste);
+    public void makePost(Integer userId, String text, Integer poste, String imgname) {
+        postRepo.createPost(userId, text, poste, imgname);
     }
 
     public List<PersonalPost> buildPersonalPosts(List<Posts> listaOriginal, HttpSession session) {
@@ -56,6 +56,7 @@ public class PostService {
         postPessoal.setPost(posts.getPost());
         postPessoal.setPosteId(posts.getPosteId());
         postPessoal.setApelido(smellService.getApelido(posts.getUserid(), (Integer) session.getAttribute("USERID")));
+        postPessoal.setImgName(posts.getImgname());
         Integer user_id = (Integer) session.getAttribute("USERID");
         boolean hunted = smellService.isAuthorBeingHuntedByTheUser(user_id, posts.getUserid());
         postPessoal.setHunted(hunted);

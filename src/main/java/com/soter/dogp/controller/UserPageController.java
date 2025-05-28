@@ -47,11 +47,13 @@ public class UserPageController {
         List<Cheiro> listCheiros = smellService.getCheiradosByUser(session);
         String posteBg = personalizeService.getBackgroundByUserId(user_id);
         String userDog = dogService.getUserDog(user_id);
+        int userPoste = userService.getOriginPosteByUserId(user_id);
         model.addAttribute("username", name);
         model.addAttribute("listsPosts", listMyPosts);
         model.addAttribute("listCheiros", listCheiros);
         model.addAttribute("backgroundImage", posteBg);
         model.addAttribute("dog", userDog);
+        model.addAttribute("userPoste", userPoste);
         return "usermenu";
     }
 
