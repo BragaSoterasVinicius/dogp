@@ -78,17 +78,18 @@
     height: inherit;
 }
 .under{
+    background-color: indianred;
     margin-top: 10px;
     bottom: 0px;
-    width: 100%;
-    text-align: center;
+    width: 400px;
+    height: 130px;
 }
 .menu{
     margin-top: 20px;
 }
 form{
+    width: 100%;
     display: inline-block;
-    margin: 0 10px;
 }
 .buttonLN{
     height: 30px;
