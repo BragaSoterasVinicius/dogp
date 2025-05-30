@@ -46,7 +46,7 @@
 <div class="under">
     <form th:action="@{/postar}" th:object="${newPosts}" method="post" enctype="multipart/form-data">
         <input style="display: none" type="file" id="image" name="image" accept="image/*" class="form-control-file"/>
-        <textarea type="text" id="post" name="post" style="height: 92px; border: 0px; padding: 0px; width: 100%; margin-bottom: 3px"></textarea>
+        <textarea type="text" id="post" name="post" style="height: 92px; border: 0px; padding: 0px; width: 100%; margin-bottom: 3px; resize: none; "></textarea>
         <button type="submit" style="float: right; width: 42%; height: 38px">Postar</button>
         <label for="image" class="icon-button">
             <img th:src="@{${'/imagens/funodimagens.png'}}" alt="Upload">
