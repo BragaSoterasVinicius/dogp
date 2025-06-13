@@ -62,13 +62,13 @@ public class PosteController {
         List<String> dogGallery = dogService.getImagesByPosteId(posteId);
         String posteBg = personalizeService.getBackgroundId(posteId);
         String layoutColor = personalizeService.getLayoutColorByPosteId(posteId);
+        model.addAttribute("layoutColor", layoutColor==null?"#808080":layoutColor);
         model.addAttribute("userid", userid);
         model.addAttribute("posteId", posteId);
         model.addAttribute("username", name);
         model.addAttribute("listsPosts", personalPosts);
         model.addAttribute("dogGallery", dogGallery);
         model.addAttribute("backgroundImage", posteBg);
-        model.addAttribute("layoutColor", layoutColor==null?"#808080":layoutColor);
         return "feed";
     }
 

@@ -74,6 +74,13 @@ public class UserPageController {
         return "redirect:/perfil";
 
     }
+    @PostMapping("/changeLayoutColor")
+    public String changeLayoutColor(@RequestParam("divscolor") String color, HttpSession session, Model model) {
+        Integer userid = (Integer) session.getAttribute("USERID");
+        Integer originPoste = userService.getOriginPosteByUserId(userid);
+        personalizeService.setLayoutColorByPosteId(originPoste, color);
+        return "redirect:/perfil";
+    }
 
     @PostMapping("/changeBg")
     public String poster(HttpSession session,

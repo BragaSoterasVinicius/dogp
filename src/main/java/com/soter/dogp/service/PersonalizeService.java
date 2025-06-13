@@ -42,8 +42,18 @@ public class PersonalizeService {
     }
 
     public String getLayoutColorByPosteId(Integer poste) {
-        String layoutColor = postRepo.getLayoutColorFromPost(poste);
+
+        Integer bg = postRepo.getBackgroundId(poste);
+        if (bg == null) {
+            return null;
+        }
+        String layoutColor = postRepo.getLayoutColorFromPost(bg);
         return layoutColor;
+    }
+
+    public void setLayoutColorByPosteId(Integer poste, String layoutColor) {
+        Integer bg = postRepo.getBackgroundId(poste);
+        postRepo.updateLayoutColor(layoutColor, bg);
     }
 
 }
