@@ -41,4 +41,9 @@ public class PersonalizeService {
         return name;
     }
 
+    public String getLayoutColorByPosteId(Integer poste) {
+        String layoutColor = postRepo.getLayoutColorFromPost(poste);
+        return layoutColor;
+    }
+
 }

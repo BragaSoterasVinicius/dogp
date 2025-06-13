@@ -38,4 +38,13 @@ public interface PostRepo extends JpaRepository<Posts, Integer> {
 
     @Query(value = "SELECT imgname FROM posts WHERE id = :id", nativeQuery = true)
     String getImagemFromPost(Integer id);
+
+    @Transactional
+    @Modifying
+    @Query(value = "UPDATE postebackground SET layoutcolor = :color WHERE background_id = :backgroundId", nativeQuery = true)
+    void updateLayoutColor(String color, Integer backgroundId);
+
+    @Query(value = "SELECT layoutcolor FROM postebackground WHERE background_id = :id", nativeQuery = true)
+    String getLayoutColorFromPost(Integer id);
+
 }
