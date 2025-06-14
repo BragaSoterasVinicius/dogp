@@ -24,8 +24,8 @@
         font-size: 20px;
     }
     .userdata{
-        bottom: 0px;
-        position: absolute;
+        top: 0px;
+        position: fixed;
         width: 100%;
     }
     .middle{
