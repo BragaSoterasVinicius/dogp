@@ -41,7 +41,7 @@
     }
 }
 .post.active{
-    background-color: lime;
+    background-color: lime !important;
 }
 .post.inactive{
     background-color: gray;
