@@ -15,6 +15,8 @@
     }
     .time{
         font-size: 25px;
+        position: absolute;
+        bottom: 0px;
     }
 }
 @media(max-width: 600px){
@@ -26,9 +28,6 @@
         position: absolute;
         width: 100%;
     }
-    .time{
-        right: 0px;
-    }
     .middle{
         width: 100%;
     }
@@ -37,6 +36,9 @@
         top: 100vh;
     }
     .time{
+        right: 0px;
+        top: 0px;
+        position: fixed;
         font-size: 20px;
     }
 }
@@ -63,8 +65,6 @@
     font-family: PixeloidSans;
     margin-left: 20px;
     color: white;
-    position: absolute;
-    bottom: 0px;
 }
 .userdata a{
 
